@@ -17,8 +17,7 @@ RUN git clone https://github.com/ZThon-Bot/ZTele.git /root/zlzl
 WORKDIR /root/zlzl
 
 # Install requirements
-RUN npm i -g npm && \
-    pip3 install --no-cache-dir -r requirements.txt
+RUN pip3 install requirements.txt
 
 # Fix the PATH to match working directory
 ENV PATH="/root/zlzl/bin:$PATH"
