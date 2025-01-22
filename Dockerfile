@@ -6,6 +6,9 @@ RUN apt-get update && \
     curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs
 
+# Install requirements and heroku3
+RUN pip3 install heroku3 && \
+
 # Clone repo
 RUN git clone https://github.com/ZThon-Bot/ZTele.git /root/zlzl
 
