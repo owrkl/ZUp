@@ -8,6 +8,7 @@ RUN apt-get update && \
 
 # Install requirements and heroku3
 RUN pip3 install heroku3
+RUN pip3 install validators
 
 # Clone repo
 RUN git clone https://github.com/ZThon-Bot/ZTele.git /root/zlzl
