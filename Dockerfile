@@ -1,4 +1,4 @@
-FROM python:3.12-slim-buster
+FROM python:3.9-slim-buster
 
 # Install dependencies in one layer
 RUN apt-get update && \
