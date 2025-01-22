@@ -1,5 +1,9 @@
 FROM python:3.9-slim-buster
 
+# Install git
+RUN apt-get update && \
+    apt-get install -y git
+    
 #clonning repo
 RUN git clone https://github.com/ZThon-Bot/ZTele.git /root/zlzl
 #working directory
