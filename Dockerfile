@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get install -y nodejs
 
 # Install requirements and heroku3
-RUN pip3 install heroku3 && \
+RUN pip3 install heroku3
 
 # Clone repo
 RUN git clone https://github.com/ZThon-Bot/ZTele.git /root/zlzl
