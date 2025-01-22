@@ -6,8 +6,11 @@ RUN apt-get update && \
 
 # Install node and npm first
 RUN apt-get update && \
-    apt-get install -y nodejs npm && \
-    npm i -g npm
+    apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs && \
+    # Install git since we needed it earlier
+    apt-get install -y git
 
 #clonning repo
 RUN git clone https://github.com/ZThon-Bot/ZTele.git /root/zlzl
