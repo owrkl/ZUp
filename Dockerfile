@@ -3,7 +3,12 @@ FROM python:3.9-slim-buster
 # Install git
 RUN apt-get update && \
     apt-get install -y git
-    
+
+# Install node and npm first
+RUN apt-get update && \
+    apt-get install -y nodejs npm && \
+    npm i -g npm
+
 #clonning repo
 RUN git clone https://github.com/ZThon-Bot/ZTele.git /root/zlzl
 #working directory
