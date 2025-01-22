@@ -1,28 +1,22 @@
-FROM python:3.9-slim-buster
+FROM python:3.12-slim-buster
 
-# Install git
+# Install dependencies in one layer
 RUN apt-get update && \
-    apt-get install -y git
-
-# Install node and npm first
-RUN apt-get update && \
-    apt-get install -y curl && \
+    apt-get install -y git curl && \
     curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
-    apt-get install -y nodejs && \
-    # Install git since we needed it earlier
-    apt-get install -y git
+    apt-get install -y nodejs
 
-#clonning repo
+# Clone repo
 RUN git clone https://github.com/ZThon-Bot/ZTele.git /root/zlzl
-#working directory
+
+# Set working directory
 WORKDIR /root/zlzl
 
 # Install requirements
-RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
-RUN apt-get install -y nodejs
-RUN npm i -g npm
-RUN pip3 install --no-cache-dir -r requirements.txt
+RUN npm i -g npm && \
+    pip3 install --no-cache-dir -r requirements.txt
 
-ENV PATH="/home/zlzl/bin:$PATH"
+# Fix the PATH to match working directory
+ENV PATH="/root/zlzl/bin:$PATH"
 
 CMD ["python3","-m","zlzl"]
